@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styling */
+html, body {
+  background-color: #111827; /* bg-gray-900 */
+  color: #fff; /* text-white */
+  font-family: 'Press Start 2P', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  margin: 0; /* m-0 */
+  padding: 0; /* p-0 */
+
+}
+
+#root {
+  display: flex; /* flex */
+ 
+  align-items: center; /* items-center */
+  justify-content: center; /* justify-center */
+  width: 100vw; /* w-full */
+  height: 100vh; /* h-full */
+  text-align: center; /* text-center */
+}
+/* Center everything vertically and horizontally */
+
+/* Remove scrollbar completely */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 5px #00ff99, 0 0 10px #00ff99, 0 0 20px #00ff99; }
+  100% { text-shadow: 0 0 15px #00ff99, 0 0 30px #00ff99, 0 0 50px #00ff99; }
+}
+
+.animate-glow {
+  animation: glow 1.5s ease-in-out infinite alternate;
+}

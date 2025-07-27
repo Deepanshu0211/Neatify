@@ -1,0 +1,33 @@
+[package]
+name = "neatify"
+version = "0.1.0"
+description = "A Tauri App"
+authors = ["you"]
+edition = "2021"
+
+[lib]
+name = "neatify_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+# Tauri core
+tauri = { version = "2", features = ["default"] }
+discord-rich-presence = "0.2"
+
+
+
+# Plugins
+tauri-plugin-opener = "2"
+tauri-plugin-dialog = "2"
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Async runtime (with required features)
+tokio = { version = "1.47.0", features = ["rt-multi-thread", "macros", "time"] }
+chrono = "0.4.41"
+

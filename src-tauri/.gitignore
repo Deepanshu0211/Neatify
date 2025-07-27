@@ -1,0 +1,30 @@
+# Frontend junk
+node_modules/
+dist/
+.vite/
+.cache/
+npm-debug.log*
+
+# Backend (Rust/Tauri)
+target/
+src-tauri/target/
+src-tauri/bundle/
+src-tauri/gen/
+
+# Build files (installer + .exe etc)
+*.msi
+*.exe
+*.dmg
+*.app
+
+# Env & config
+.env
+.env.*
+
+# IDE/Editor folders
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db

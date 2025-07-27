@@ -1,0 +1,42 @@
+{
+  "name": "neatify",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "@tauri-apps/api": "^2.7.0",
+    "@tauri-apps/plugin-dialog": "^2.3.1",
+    "@tauri-apps/plugin-opener": "^2",
+    "canvas-confetti": "^1.9.3",
+    "framer-motion": "^12.23.9",
+    "lucide-react": "^0.526.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.5.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
+    "@tauri-apps/cli": "^2",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.3"
+  },
+  "description": "This template should help get you started developing with Tauri, React and Typescript in Vite.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
