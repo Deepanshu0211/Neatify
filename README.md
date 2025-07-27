@@ -3,7 +3,7 @@
 Organize your digital mess.  
 **Clean. Fast. Effortless.**
 
-![Neatify UI](../Neatify/src-tauri/icons/128x128.png)
+![Neatify UI](https://github.com/Deepanshu0211/Neatify/blob/main/src-tauri/icons/128x128.png)
 
 ---
 
@@ -33,7 +33,7 @@ Built with 💖 using:
 
 
 
-![App Screenshot](../Neatify//src/assets/ss1.png)
+![App Screenshot](https://github.com/Deepanshu0211/Neatify/blob/main/src/assets/ss1.png)
 
 ---
 
