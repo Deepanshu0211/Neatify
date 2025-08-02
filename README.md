@@ -66,7 +66,7 @@ Wanna contribute? Let’s collab
 
 >  All PRs go through basic testing before merge.
 ##  License
-MIT License<br>
+
 You're free to use, modify, and distribute.
 
 ## Author
