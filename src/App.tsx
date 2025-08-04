@@ -189,7 +189,7 @@ export default function App() {
           <p className="mt-3 text-indigo-300 text-center animate-pulse">{statusMessage}</p>
         </motion.div>
       )}
-
+      
       {/* Confetti */}
       {isDone && <ConfettiEffect />}
     </motion.div>

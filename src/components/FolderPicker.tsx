@@ -31,10 +31,13 @@ export default function FolderPicker({ folder, setFolder }: Props) {
       transition={{ duration: 0.4 }}
       className="w-full max-w-4xl flex items-center justify-between bg-gray-900 p-4 rounded-xl shadow-glow"
     >
-      <div className="flex items-center gap-3 text-white font-pixel">
-        <FolderOpen className="w-6 h-6 text-accent" />
-        <span>{folder || "No folder selected"}</span>
-      </div>
+    <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-800 border border-gray-700 text-white font-pixel">
+      <FolderOpen className="w-6 h-6 text-accent" />
+      <span className={folder ? "" : "text-gray-400 italic"}>
+        {folder || "Click to select a folder"}
+      </span>
+    </div>
+
       <button
         onClick={selectFolder}
         className="px-5 py-2 bg-accent hover:bg-purple-700 text-white rounded-lg font-bold transition shadow-lg"

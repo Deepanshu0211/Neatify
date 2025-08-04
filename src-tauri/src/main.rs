@@ -3,12 +3,13 @@
     windows_subsystem = "windows"
 )]
 
-use std::sync::{
-    atomic::{AtomicBool, Ordering},
-    Arc,
+use std::{
+    collections::HashMap,
+    fs,
+    path::Path,
+    sync::{atomic::{AtomicBool, Ordering}, Arc},
 };
-use std::fs;
-use std::path::Path;
+
 use tauri::{Emitter, Manager};
 use tokio::time::{sleep, Duration};
 use discord_rich_presence::{activity, DiscordIpc, DiscordIpcClient};
@@ -33,7 +34,72 @@ async fn organize_files(
         return Err("No files found in the selected folder".into());
     }
 
+    // Category mapping: ext → (MainFolder, SubFolder)
+    let categories: HashMap<&str, (&str, &str)> = [
+        // Documents
+        ("pdf", ("Documents", "PDF")),
+        ("doc", ("Documents", "Word")),
+        ("docx", ("Documents", "Word")),
+        ("txt", ("Documents", "Text")),
+        ("xls", ("Documents", "Excel")),
+        ("xlsx", ("Documents", "Excel")),
+        ("ppt", ("Documents", "PowerPoint")),
+        ("pptx", ("Documents", "PowerPoint")),
+
+        // Images
+        ("jpg", ("Media", "Images")),
+        ("jpeg", ("Media", "Images")),
+        ("png", ("Media", "Images")),
+        ("gif", ("Media", "Images")),
+        ("bmp", ("Media", "Images")),
+        ("svg", ("Media", "Images")),
+        ("webp", ("Media", "Images")),
+
+        // Videos
+        ("mp4", ("Media", "Videos")),
+        ("mkv", ("Media", "Videos")),
+        ("avi", ("Media", "Videos")),
+        ("mov", ("Media", "Videos")),
+        ("flv", ("Media", "Videos")),
+
+        // Audio
+        ("mp3", ("Media", "Audio")),
+        ("wav", ("Media", "Audio")),
+        ("flac", ("Media", "Audio")),
+        ("aac", ("Media", "Audio")),
+        ("ogg", ("Media", "Audio")),
+
+        // Archives
+        ("zip", ("Archives", "")),
+        ("rar", ("Archives", "")),
+        ("7z", ("Archives", "")),
+        ("tar", ("Archives", "")),
+        ("gz", ("Archives", "")),
+
+        // Applications
+        ("exe", ("Applications", "")),
+        ("msi", ("Applications", "")),
+        ("apk", ("Applications", "")),
+        ("bat", ("Applications", "")),
+
+        // Code
+        ("js", ("Code", "")),
+        ("ts", ("Code", "")),
+        ("jsx", ("Code", "")),
+        ("tsx", ("Code", "")),
+        ("html", ("Code", "")),
+        ("css", ("Code", "")),
+        ("py", ("Code", "")),
+        ("java", ("Code", "")),
+        ("c", ("Code", "")),
+        ("cpp", ("Code", "")),
+        ("cs", ("Code", "")),
+        ("json", ("Code", "")),
+    ].iter().cloned().collect();
+
     let mut processed = 0;
+    let mut log_entries = Vec::new();
+
     for entry in files {
         if state.cancel_flag.load(Ordering::Relaxed) {
             println!("Organizing stopped by user.");
@@ -45,23 +111,41 @@ async fn organize_files(
 
         if file_path.is_file() {
             if let Some(ext) = file_path.extension() {
-                let folder_name = ext.to_string_lossy().to_string();
-                let dest_folder = Path::new(&path).join(&folder_name);
-                fs::create_dir_all(&dest_folder).map_err(|e| e.to_string())?;
+                let ext_str = ext.to_string_lossy().to_lowercase();
+                let (main_folder, sub_folder) = categories
+                    .get(ext_str.as_str())
+                    .unwrap_or(&("Others", ""));
 
-                let dest_path = dest_folder.join(file_name);
+                let dest_folder = if sub_folder.is_empty() {
+                    Path::new(&path).join(main_folder)
+                } else {
+                    Path::new(&path).join(main_folder).join(sub_folder)
+                };
+
+                fs::create_dir_all(&dest_folder).map_err(|e| e.to_string())?;
+                let dest_path = dest_folder.join(&file_name);
+
                 fs::rename(&file_path, &dest_path).map_err(|e| e.to_string())?;
+                log_entries.push(format!("{}|{}", dest_path.display(), file_path.display()));
+            } else {
+                let dest_folder = Path::new(&path).join("Others");
+                fs::create_dir_all(&dest_folder).map_err(|e| e.to_string())?;
+                let dest_path = dest_folder.join(&file_name);
+
+                fs::rename(&file_path, &dest_path).map_err(|e| e.to_string())?;
+                log_entries.push(format!("{}|{}", dest_path.display(), file_path.display()));
             }
         }
 
         processed += 1;
         let progress = (processed as f64 / total as f64) * 100.0;
-        if let Err(e) = window.emit("progress", progress as i32) {
-            eprintln!("Failed to emit progress: {}", e);
-        }
-
+        window.emit("progress", progress as i32).ok();
         sleep(Duration::from_millis(150)).await;
     }
+
+    // Save undo log
+    let log_path = Path::new(&path).join(".neatify_log");
+    fs::write(&log_path, log_entries.join("\n")).map_err(|e| e.to_string())?;
 
     Ok(())
 }
@@ -69,43 +153,34 @@ async fn organize_files(
 #[tauri::command]
 fn cancel_organize(state: tauri::State<AppState>) {
     state.cancel_flag.store(true, Ordering::Relaxed);
-    println!("Cancel requested...");
 }
 
 #[tauri::command]
-async fn undo_organization(
-    path: String,
-    window: tauri::Window,
-    _state: tauri::State<'_, AppState>,
-) -> Result<(), String> {
-    let entries = fs::read_dir(&path).map_err(|e| e.to_string())?;
-    let folders: Vec<_> = entries.filter_map(Result::ok).collect();
-    let total = folders.len();
-    let mut processed = 0;
-
-    for folder in folders {
-        if folder.path().is_dir() {
-            let sub_files = fs::read_dir(folder.path()).map_err(|e| e.to_string())?;
-            for sub_file in sub_files {
-                let sub_file = sub_file.map_err(|e| e.to_string())?;
-                let dest_path = Path::new(&path).join(sub_file.file_name());
-                fs::rename(sub_file.path(), dest_path).map_err(|e| e.to_string())?;
-            }
-            fs::remove_dir(folder.path()).map_err(|e| e.to_string())?;
-        }
-
-        processed += 1;
-        let progress = (processed as f64 / total as f64) * 100.0;
-        if let Err(e) = window.emit("progress", progress as i32) {
-            eprintln!("Failed to emit progress: {}", e);
-        }
-
-        sleep(Duration::from_millis(150)).await;
+async fn undo_organization(path: String, window: tauri::Window) -> Result<(), String> {
+    let log_path = Path::new(&path).join(".neatify_log");
+    if !log_path.exists() {
+        return Err("No undo log found.".into());
     }
 
+    let content = fs::read_to_string(&log_path).map_err(|e| e.to_string())?;
+    let moves: Vec<&str> = content.lines().collect();
+    let total = moves.len();
+    let mut processed = 0;
+
+    for line in moves {
+        if let Some((moved, original)) = line.split_once("|") {
+            let _ = fs::create_dir_all(Path::new(original).parent().unwrap());
+            fs::rename(moved, original).ok();
+        }
+        processed += 1;
+        let progress = (processed as f64 / total as f64) * 100.0;
+        window.emit("progress", progress as i32).ok();
+        sleep(Duration::from_millis(100)).await;
+    }
+
+    fs::remove_file(&log_path).ok();
     Ok(())
 }
-
 #[tokio::main]
 async fn main() {
     // ✅ Initialize Discord RPC
