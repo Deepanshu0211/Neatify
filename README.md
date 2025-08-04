@@ -41,7 +41,7 @@ Built with 💖 using:
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/yourusername/neatify.git
+   git clone https://github.com/deepanshu0211/neatify.git
    cd neatify
 2. Install dependencies:
    ```bash 
@@ -66,7 +66,7 @@ Wanna contribute? Let’s collab
 
 >  All PRs go through basic testing before merge.
 ##  License
-MIT License<br>
+
 You're free to use, modify, and distribute.
 
 ## Author
