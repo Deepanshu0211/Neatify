@@ -1,3 +1,5 @@
+<div align="center">
+
 #  Neatify
 
 Organize your digital mess.  
@@ -6,7 +8,7 @@ Organize your digital mess.
 ![Neatify UI](https://github.com/Deepanshu0211/Neatify/blob/main/src-tauri/icons/128x128.png)
 
 ---
-
+</div>
 ##  What is Neatify?
 
 **Neatify** is a slick desktop app that lets you organize cluttered folders with just one click.
