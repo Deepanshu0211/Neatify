@@ -33,7 +33,7 @@ Built with 💖 using:
 
 
 
-![App Screenshot](https://github.com/Deepanshu0211/Neatify/blob/main/src/assets/ss1.png)
+![App Screenshot](https://github.com/Deepanshu0211/Neatify/blob/main/src/assets/image.png)
 
 ---
 
