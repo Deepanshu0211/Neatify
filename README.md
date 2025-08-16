@@ -9,6 +9,7 @@ Organize your digital mess.
 
 ---
 </div>
+
 ##  What is Neatify?
 
 **Neatify** is a slick desktop app that lets you organize cluttered folders with just one click.
