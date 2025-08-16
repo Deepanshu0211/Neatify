@@ -4,14 +4,18 @@
 
 /* Global Styling */
 html, body {
-  background-color: #111827; /* bg-gray-900 */
-  color: #fff; /* text-white */
+  
+  color: #ffffff; /* text-white */
   font-family: 'Press Start 2P', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   margin: 0; /* m-0 */
   padding: 0; /* p-0 */
 
 }
-
+.darkveil-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 #root {
   display: flex; /* flex */
  

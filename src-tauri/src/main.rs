@@ -7,12 +7,15 @@ use std::{
     collections::HashMap,
     fs,
     path::Path,
-    sync::{atomic::{AtomicBool, Ordering}, Arc},
+    sync::{
+        atomic::{AtomicBool, Ordering},
+        Arc,
+    },
 };
 
+use discord_rich_presence::{activity, DiscordIpc, DiscordIpcClient};
 use tauri::{Emitter, Manager};
 use tokio::time::{sleep, Duration};
-use discord_rich_presence::{activity, DiscordIpc, DiscordIpcClient};
 
 struct AppState {
     cancel_flag: Arc<AtomicBool>,
@@ -45,7 +48,6 @@ async fn organize_files(
         ("xlsx", ("Documents", "Excel")),
         ("ppt", ("Documents", "PowerPoint")),
         ("pptx", ("Documents", "PowerPoint")),
-
         // Images
         ("jpg", ("Media", "Images")),
         ("jpeg", ("Media", "Images")),
@@ -54,34 +56,29 @@ async fn organize_files(
         ("bmp", ("Media", "Images")),
         ("svg", ("Media", "Images")),
         ("webp", ("Media", "Images")),
-
         // Videos
         ("mp4", ("Media", "Videos")),
         ("mkv", ("Media", "Videos")),
         ("avi", ("Media", "Videos")),
         ("mov", ("Media", "Videos")),
         ("flv", ("Media", "Videos")),
-
         // Audio
         ("mp3", ("Media", "Audio")),
         ("wav", ("Media", "Audio")),
         ("flac", ("Media", "Audio")),
         ("aac", ("Media", "Audio")),
         ("ogg", ("Media", "Audio")),
-
         // Archives
         ("zip", ("Archives", "")),
         ("rar", ("Archives", "")),
         ("7z", ("Archives", "")),
         ("tar", ("Archives", "")),
         ("gz", ("Archives", "")),
-
         // Applications
         ("exe", ("Applications", "")),
         ("msi", ("Applications", "")),
         ("apk", ("Applications", "")),
         ("bat", ("Applications", "")),
-
         // Code
         ("js", ("Code", "")),
         ("ts", ("Code", "")),
@@ -95,7 +92,10 @@ async fn organize_files(
         ("cpp", ("Code", "")),
         ("cs", ("Code", "")),
         ("json", ("Code", "")),
-    ].iter().cloned().collect();
+    ]
+    .iter()
+    .cloned()
+    .collect();
 
     let mut processed = 0;
     let mut log_entries = Vec::new();
@@ -112,9 +112,8 @@ async fn organize_files(
         if file_path.is_file() {
             if let Some(ext) = file_path.extension() {
                 let ext_str = ext.to_string_lossy().to_lowercase();
-                let (main_folder, sub_folder) = categories
-                    .get(ext_str.as_str())
-                    .unwrap_or(&("Others", ""));
+                let (main_folder, sub_folder) =
+                    categories.get(ext_str.as_str()).unwrap_or(&("Others", ""));
 
                 let dest_folder = if sub_folder.is_empty() {
                     Path::new(&path).join(main_folder)
@@ -200,8 +199,7 @@ async fn main() {
                     activity::Assets::new()
                         .large_image("neatify_logo") // You must upload this in Discord Developer Portal
                         .large_text("Neatify App"),
-                )
-               
+                ),
         ) {
             eprintln!("Failed to set Discord activity: {}", e);
         }
@@ -212,6 +210,7 @@ async fn main() {
     });
 
     tauri::Builder::default()
+        .plugin(tauri_plugin_shell::init())
         .manage(AppState {
             cancel_flag: Arc::new(AtomicBool::new(false)),
         })

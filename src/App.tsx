@@ -9,6 +9,10 @@ import ConfettiEffect from "./components/ConfettiEffect";
 import { Play, RotateCcw, Square } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
+import DarkVeil from './blocks/Backgrounds/DarkVeil/DarkVeil';
+import AuthorCard from "./components/AuthorCard";
+import LiveUsers from "./components/LiveUsers";
+
 import "./App.css";
 
 
@@ -102,29 +106,41 @@ export default function App() {
   };
 
   return (
+
+   
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen w-full px-4 py-10 flex flex-col items-center justify-start bg-gradient-to-tr from-black via-gray-900 to-zinc-800 text-white font-pixel overflow-hidden relative"
+      className="min-h-screen w-full px-4 py-10 flex flex-col items-center justify-start text-white font-pixel overflow-hidden relative"
     >
+    <div className="absolute inset-0 -z-10 bg-black">
+      <DarkVeil />
+    </div>
+      
+      {/* Live Users */}
       <Toaster
         position="bottom-right"
         toastOptions={{
           style: {
-            background: "#1f1f2e",
-            color: "#fff",
-            fontFamily: "Press Start 2P",
+            background: "rgba(31, 31, 46, 0.8)", // translucent bg
+            color: "#E9D5FF", // soft violet text
+            fontFamily: "Press Start 2P, monospace",
+            borderRadius: "12px",
+            backdropFilter: "blur(10px)",
+            border: "1px solid rgba(139, 92, 246, 0.3)", // violet border
+            boxShadow: "0 4px 12px rgba(0,0,0,0.5), 0 0 10px rgba(139,92,246,0.4)",
           },
         }}
       />
-
+    
+      {/* Background Animation */}
     <motion.div
       initial={{ y: -30, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="text-center mb-10"
     >
-      <h1 className="text-5xl md:text-6xl font-bold text-indigo-400 tracking-tight drop-shadow-[0_0_16px_rgba(129,140,248,0.8)]">
+      <h1 className="text-5xl md:text-6xl font-bold text-white-400 tracking-tight drop-shadow-[0_0_16px_rgba(129,140,248,0.8)]">
         Neatify
       </h1>
       <p className="mt-3 text-lg md:text-xl text-gray-300 font-light italic">
@@ -145,7 +161,7 @@ export default function App() {
 
       {/* Action Buttons */}
       <motion.div
-        className="flex flex-wrap  gap-4  justify-center"
+        className="flex flex-wrap gap-4 justify-center"
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
       >
@@ -154,27 +170,37 @@ export default function App() {
             onClick={handleOrganize}
             whileTap={{ scale: 0.95 }}
             whileHover={{ scale: 1.05 }}
-            className="px-4 py-2 bg-green-500 hover:bg-green-600 rounded-2xl shadow-xl font-bold flex items-center gap-2"
+            className="px-4 py-2 rounded-xl font-medium
+                      bg-white/10 hover:bg-white/20
+                      border border-white/20 text-white
+                      backdrop-blur-md shadow-lg flex items-center gap-2"
           >
-            <Play size={20} /> Organize
+            <Play size={18} /> Organize
           </motion.button>
         ) : (
           <motion.button
             onClick={handleStop}
             whileTap={{ scale: 0.95 }}
             whileHover={{ scale: 1.05 }}
-            className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 rounded-2xl shadow-xl font-bold flex items-center gap-2"
+            className="px-4 py-2 rounded-xl font-medium
+                      bg-white/10 hover:bg-white/20
+                      border border-white/20 text-white
+                      backdrop-blur-md shadow-lg flex items-center gap-2"
           >
-            <Square size={20} /> Stop
+            <Square size={18} /> Stop
           </motion.button>
         )}
+
         <motion.button
           onClick={handleUndo}
           whileTap={{ scale: 0.95 }}
           whileHover={{ scale: 1.05 }}
-          className="px-6 py-3 bg-red-500 hover:bg-red-600 rounded-2xl shadow-xl font-bold flex items-center gap-2"
+          className="px-4 py-2 rounded-xl font-medium
+                    bg-white/10 hover:bg-white/20
+                    border border-white/20 text-white
+                    backdrop-blur-md shadow-lg flex items-center gap-2"
         >
-          <RotateCcw size={20} /> Undo
+          <RotateCcw size={18} /> Undo
         </motion.button>
       </motion.div>
 
@@ -189,9 +215,11 @@ export default function App() {
           <p className="mt-3 text-indigo-300 text-center animate-pulse">{statusMessage}</p>
         </motion.div>
       )}
-      
+       <LiveUsers />
+        <AuthorCard />
       {/* Confetti */}
       {isDone && <ConfettiEffect />}
     </motion.div>
+    
   );
 }

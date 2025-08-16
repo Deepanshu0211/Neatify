@@ -5,19 +5,23 @@ type OptionsPanelProps = {
 
 export default function OptionsPanel({ }: OptionsPanelProps) {
   return (
-   <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-4 rounded-xl shadow border border-gray-700 w-full max-w-md">
-  <h2 className="text-xl font-bold text-indigo-400 mb-3 font-pixel text-center">
-    Organizing Option
-  </h2>
+    <div className="w-full max-w-md p-4 rounded-2xl 
+                    bg-black/20 backdrop-blur-md 
+                    border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.25)]">
+      
+      <h2 className="text-xl font-bold text-white mb-3 font-pixel text-center">
+        Organizing Option
+      </h2>
 
-  <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-600 border border-indigo-400 text-white shadow">
-    📦 <span className="font-medium">By File Type</span>
-  </div>
+      <div className="flex items-center gap-2 p-3 rounded-lg 
+                      bg-black/10 backdrop-blur-sm 
+                      border border-white/10 text-gray-200 cursor-default">
+        📦 <span className="font-medium">By File Type</span>
+      </div>
 
-  <p className="mt-2 text-gray-400 text-xs text-center">
-    Groups files into categories like Documents, Media, Apps, etc.
-  </p>
-</div>
-
+      <p className="mt-2 text-gray-400 text-xs text-center">
+        Groups files into categories like Documents, Media, Apps, etc.
+      </p>
+    </div>
   );
 }
