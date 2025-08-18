@@ -5,10 +5,23 @@
   "windows": [
     "main"
   ],
+  "webviews": ["main"],
+  "urls": ["local"],
+
   "permissions": [
     "core:default",
     "dialog:default",
     "dialog:allow-open",
-    "shell:allow-open"
+    "updater:default",
+    "updater:allow-check",
+    "updater:allow-download",
+    "updater:allow-install",
+    "shell:allow-open",
+    {
+      "identifier": "http:allow-fetch",
+      "domains": [
+        "https://neatify-stats-server.vercel.app"
+      ]
+    }
   ]
 }

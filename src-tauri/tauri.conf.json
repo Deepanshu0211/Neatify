@@ -1,16 +1,14 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "neatify",
+  "productName": "Neatify",
   "version": "0.1.0",
   "identifier": "com.neatify.app",
-
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
     "beforeBuildCommand": "npm run build",
     "frontendDist": "../dist"
   },
-
   "app": {
     "windows": [
       {
@@ -23,11 +21,9 @@
       }
     ],
     "security": {
-      "csp": null,
-      "capabilities": ["default"]
+      "capabilities": ["default", "http-access", "updater"]
     }
   },
-
   "bundle": {
     "active": true,
     "targets": "all",
@@ -38,5 +34,20 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ]
+  },
+  "plugins": {
+    "updater": {
+      "active": true,
+      "endpoints": [
+        "https://github.com/Deepanshu0211/Neatify/releases/download/v3/latest.json"
+      ],
+      "dialog": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDQ1NEYzNUNFOUY0NjFCRkEKUldUNkcwYWZ6alZQUlVvZ3V1Q0ZMQU5ibkVoVUVOZlNvNkhjNStnQkJJcGFxcmxLWVR4VHYwNTQK",
+       "allow": {
+      "check": true,
+      "download": true,
+      "install": true
+    }
+    }
   }
 }

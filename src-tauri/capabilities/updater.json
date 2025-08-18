@@ -1,0 +1,10 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "identifier": "updater",
+  "description": "Allows the app to check and download updates",
+  "permissions": [
+    "updater:default",
+    "updater:allow-check",
+    "updater:allow-download"
+  ]
+}

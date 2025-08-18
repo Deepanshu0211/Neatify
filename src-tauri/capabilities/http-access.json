@@ -1,0 +1,16 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "http-access",
+  "description": "Allow Neatify to fetch stats",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "http:default",
+    {
+      "identifier": "http:allow-fetch",
+      "domains": [
+        "https://neatify-stats-server.vercel.app"
+      ]
+    }
+  ]
+}

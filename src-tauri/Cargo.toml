@@ -16,6 +16,7 @@ tauri-build = { version = "2", features = [] }
 # Tauri core
 tauri = { version = "2", features = ["default"] }
 discord-rich-presence = "0.2"
+tauri-plugin-http = "2"
 
 
 
@@ -31,4 +32,7 @@ serde_json = "1"
 tokio = { version = "1.47.0", features = ["rt-multi-thread", "macros", "time"] }
 chrono = "0.4.41"
 tauri-plugin-shell = "2"
+
+[target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
+tauri-plugin-updater = "2"
 
