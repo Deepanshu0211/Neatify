@@ -5,7 +5,7 @@
   "platforms": {
     "windows-x86_64": {
       "url": "https://github.com/Deepanshu0211/Neatify/releases/download/v3/neatify_0.1.0_x64-setup.exe",
-      "signature": "sha256:9e046326050862dd5bfa3ad58a11abf1b73085a3e1ac1a8cd268567d73013586"
+      "signature": "9e046326050862dd5bfa3ad58a11abf1b73085a3e1ac1a8cd268567d73013586"
     }
   }
 }
