@@ -1,3 +1,5 @@
+<div align="center">
+
 #  Neatify
 
 Organize your digital mess.  
@@ -6,6 +8,7 @@ Organize your digital mess.
 ![Neatify UI](https://github.com/Deepanshu0211/Neatify/blob/main/src-tauri/icons/128x128.png)
 
 ---
+</div>
 
 ##  What is Neatify?
 
@@ -33,7 +36,7 @@ Built with 💖 using:
 
 
 
-![App Screenshot](https://github.com/Deepanshu0211/Neatify/blob/main/src/assets/ss1.png)
+![App Screenshot](https://github.com/Deepanshu0211/Neatify/blob/main/src/assets/image.png)
 
 ---
 
