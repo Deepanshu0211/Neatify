@@ -12,8 +12,10 @@ import { motion } from "framer-motion";
 import DarkVeil from './blocks/Backgrounds/DarkVeil/DarkVeil';
 import AuthorCard from "./components/AuthorCard";
 import LiveUsers from "./components/LiveUsers";
+import WindowControls from "./components/WindowControls";
 
 import "./App.css";
+
 
 
 export default function App() {
@@ -113,6 +115,15 @@ export default function App() {
       animate={{ opacity: 1 }}
       className="min-h-screen w-full px-4 py-10 flex flex-col items-center justify-start text-white font-pixel overflow-hidden relative"
     >
+      <div
+        className="absolute inset-x-0 top-0 h-8 cursor-pointer"
+        style={{ WebkitAppRegion: "drag" } as React.CSSProperties}
+      />
+      <AuthorCard />
+      <WindowControls />
+      
+      
+      {/* Background Veil */}
     <div className="absolute inset-0 -z-10 bg-black">
       <DarkVeil />
     </div>
@@ -140,7 +151,14 @@ export default function App() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="text-center mb-10"
     >
-      <h1 className="text-5xl md:text-6xl font-bold text-white-400 tracking-tight drop-shadow-[0_0_16px_rgba(129,140,248,0.8)]">
+      <h1
+        className="text-5xl md:text-7xl font-extrabold tracking-tight 
+                  bg-gradient-to-r from-indigo-400 via-indigo-300 to-purple-400 
+                  bg-clip-text text-transparent 
+                  drop-shadow-[0_0_25px_rgba(129,140,248,0.6)] 
+                  hover:drop-shadow-[0_0_40px_rgba(129,140,248,0.9)] 
+                  transition-all duration-500 ease-in-out"
+      >
         Neatify
       </h1>
       <p className="mt-3 text-lg md:text-xl text-gray-300 font-light italic">
@@ -203,20 +221,21 @@ export default function App() {
           <RotateCcw size={18} /> Undo
         </motion.button>
       </motion.div>
-
+        {/* Render PreviewModal without props if it does not accept any */}
+       
       {/* Progress */}
       {progress > 0 && (
         <motion.div
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="w-full max-w-xl mt-10"
+          className="w-full max-w-xl mt-4"
         >
           <ProgressBar value={progress} />
           <p className="mt-3 text-indigo-300 text-center animate-pulse">{statusMessage}</p>
         </motion.div>
       )}
        <LiveUsers />
-        <AuthorCard />
+        
       {/* Confetti */}
       {isDone && <ConfettiEffect />}
     </motion.div>

@@ -131,14 +131,14 @@ export default function UpdateNotifier() {
 
   return (
     <>
-      {/* Glass Panel */}
+      {/* Compact Glass Panel */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="fixed bottom-4 left-4 flex items-center gap-3 z-40 
-                   bg-black/40 backdrop-blur-xl border border-white/10 
-                   rounded-2xl shadow-lg px-4 py-2"
+        transition={{ duration: 0.4 }}
+        className="fixed bottom-2 left-2 z-40 flex items-center gap-2
+                   bg-black/40 backdrop-blur-lg border border-white/10 
+                   rounded-lg shadow-md px-2 py-1.5 text-xs max-w-[260px]"
       >
         {/* Update button */}
         <motion.button
@@ -148,7 +148,7 @@ export default function UpdateNotifier() {
             updateVersion ? () => setShowModal(true) : () => runAutoUpdate(true)
           }
           disabled={checking || progress !== null}
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl border shadow-md transition-all
+          className={`flex items-center gap-1 px-2 py-1 rounded-md border shadow-sm transition-all text-xs
             ${
               updateVersion
                 ? "bg-green-500/20 border-green-400 text-green-200 animate-pulse"
@@ -158,23 +158,23 @@ export default function UpdateNotifier() {
         >
           {progress !== null ? (
             <>
-              <RefreshCcw className="w-4 h-4 animate-spin" />
-              Installing {progress}%
+              <RefreshCcw className="w-3 h-3 animate-spin" />
+              {progress}%
             </>
           ) : checking ? (
             <>
-              <RefreshCcw className="w-4 h-4 animate-spin" />
+              <RefreshCcw className="w-3 h-3 animate-spin" />
               Checking
             </>
           ) : updateVersion ? (
             <>
-              <Download className="w-4 h-4" />
-              Install v{updateVersion}
+              <Download className="w-3 h-3" />
+              v{updateVersion}
             </>
           ) : (
             <>
-              <RefreshCcw className="w-4 h-4" />
-              Check Updates
+              <RefreshCcw className="w-3 h-3" />
+              Check
             </>
           )}
         </motion.button>
@@ -182,22 +182,21 @@ export default function UpdateNotifier() {
         {/* Version badge */}
         {currentVersion && (
           <span
-            className={`text-xs font-mono px-3 py-1 rounded-full shadow-inner border
+            className={`text-[10px] font-mono px-2 py-0.5 rounded-md border
               ${
                 updateVersion
                   ? "bg-yellow-500/10 text-yellow-200 border-yellow-400/30"
-                  : "bg-white/10 text-white/80 border-white/20"
+                  : "bg-white/10 text-white/70 border-white/20"
               }
             `}
           >
             v{currentVersion}
-            {updateVersion && ` → v${updateVersion}`}
           </span>
         )}
 
         {/* Last checked */}
         {lastChecked && (
-          <div className="flex items-center text-xs text-white/50 ml-2">
+          <div className="flex items-center text-[10px] text-white/50">
             <Clock className="w-3 h-3 mr-1" />
             {lastChecked}
           </div>
@@ -211,38 +210,38 @@ export default function UpdateNotifier() {
           initial={{ width: "0%" }}
           animate={{ width: `${progress}%` }}
           transition={{ ease: "easeInOut", duration: 0.2 }}
-          className="fixed bottom-0 left-0 h-1 bg-green-400 z-50 shadow-lg"
+          className="fixed bottom-0 left-0 h-0.5 bg-green-400 z-50 shadow-lg"
         />
       )}
 
       {/* Toasts */}
-      <div className="fixed bottom-20 left-4 flex flex-col gap-2 z-50">
+      <div className="fixed bottom-14 left-2 flex flex-col gap-1 z-50">
         <AnimatePresence>
           {toasts.map((toast) => (
             <motion.div
               key={toast.id}
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              initial={{ opacity: 0, y: 15, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -20, scale: 0.95 }}
+              exit={{ opacity: 0, y: -15, scale: 0.95 }}
               transition={{ type: "spring", stiffness: 300, damping: 22 }}
-              className="flex items-center gap-3 px-3 py-2 rounded-xl 
-                         bg-black/50 backdrop-blur-xl border border-white/10 
-                         text-white text-sm shadow-lg w-fit max-w-xs"
+              className="flex items-center gap-2 px-2 py-1 rounded-md 
+                         bg-black/60 backdrop-blur-lg border border-white/10 
+                         text-white text-xs shadow-md w-fit max-w-[200px]"
             >
               {toast.type === "success" && (
-                <Check className="w-4 h-4 text-green-400" />
+                <Check className="w-3 h-3 text-green-400" />
               )}
               {toast.type === "error" && (
-                <XCircle className="w-4 h-4 text-red-400" />
+                <XCircle className="w-3 h-3 text-red-400" />
               )}
               {toast.type === "info" && (
-                <Info className="w-4 h-4 text-blue-400" />
+                <Info className="w-3 h-3 text-blue-400" />
               )}
               <span>{toast.message}</span>
               {toast.action && (
                 <button
                   onClick={toast.action}
-                  className="ml-2 text-xs underline text-blue-300 hover:text-blue-200"
+                  className="ml-1 text-[10px] underline text-blue-300 hover:text-blue-200"
                 >
                   Retry
                 </button>

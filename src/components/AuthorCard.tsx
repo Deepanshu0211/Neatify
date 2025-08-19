@@ -64,7 +64,7 @@ export default function AuthorInfo() {
   };
 
   return (
-    <div className="fixed top-4 right-4 z-50" ref={cardRef}>
+    <div className="fixed top-4 left-4 z-5000" ref={cardRef}>
       {/* Floating Avatar Button */}
       <button
         onClick={() => setOpen(!open)}
@@ -94,7 +94,7 @@ export default function AuthorInfo() {
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             
             transition={{ duration: 0.25 }}
-            className="absolute mt-2 right-0 w-48 p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl text-sm"
+            className="absolute mt-2 top-7 left-0 w-48 p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl text-sm"
           >
             {/* User Info */}
             <div className="flex items-center gap-2 mb-3">
