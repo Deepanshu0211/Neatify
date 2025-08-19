@@ -1,7 +1,7 @@
 {
-  "version": "3.0.2",
+  "version": "3.0.3",
   "notes": "What's new in this version...",
-  "pub_date": "2025-08-16T12:52:00Z",
+  "pub_date": "2025-08-19T12:52:00Z",
   "platforms": {
     "windows-x86_64": {
       "url": "https://github.com/Deepanshu0211/Neatify/releases/download/v3.0.3/Neatify_3.0.3_x64-setup.exe",
