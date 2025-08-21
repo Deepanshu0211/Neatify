@@ -1,7 +1,7 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
   "productName": "Neatify",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "identifier": "com.neatify.app",
   "build": {
     "beforeDevCommand": "npm run dev",
@@ -15,6 +15,7 @@
         "title": "Neatify",
         "width": 900,
         "height": 605,
+        "center": true,
         "resizable": false,
         "fullscreen": false,
         "decorations": false,

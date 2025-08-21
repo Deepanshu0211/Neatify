@@ -262,7 +262,7 @@ export default function App() {
       )}
        <LiveUsers />
         
-      Confetti
+     
       {isDone && <ConfettiEffect />}
     </motion.div>
     

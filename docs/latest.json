@@ -1,11 +1,11 @@
 {
-  "version": "3.0.4",
+  "version": "3.0.5",
   "notes": "What's new in this version...",
   "pub_date": "2025-08-19T12:52:00Z",
   "platforms": {
     "windows-x86_64": {
-      "url": "https://github.com/Deepanshu0211/Neatify/releases/download/v3.0.4/Neatify_3.0.4_x64-setup.exe",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUNkcwYWZ6alZQUlI3T0xyRXcreHE1Y1pySlY2dDQraUczZnVNSkl5R1ExZENJQ1FWcENPdHFDWjlKQ3Z6S3JUYmxkeDI2dEJmek9nNTNXQjVpaTlORXg2RTRiOFBmWndzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzU1NzY0NDg2CWZpbGU6TmVhdGlmeV8zLjAuNF94NjQtc2V0dXAuZXhlCnIrWUdnWTJ2R2lOelVrbzR1NUUzUjFiZWpwWkhNQ1A0QmJIektkcnh1Z3F4d3NOdkluNjJUNE1GNU5hMmVGRi9HeGk4aHdxZ1FjSVJscHlOS2dZaUN3PT0K"
+      "url": "https://github.com/Deepanshu0211/Neatify/releases/download/v3.0.5/Neatify_3.0.5_x64-setup.exe",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUNkcwYWZ6alZQUlNGWTVvLzQ2cGJ4Z0xDbHF0M1Z3VldLc25yOFFNTXVBemNOSEFUc3gzQlhIdHlxK0RLWFMxc1VScGNuZzlZWk1FTVV1VWE4ZzE0clRNL3R5aGJSeVE4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzU1NzY1OTA0CWZpbGU6TmVhdGlmeV8zLjAuNV94NjQtc2V0dXAuZXhlCnUwbDY1YnRMbE5wdkZXdlZRWEM0bTg4MHNPMTFmd0lLdFhPSkFUdkpVSDdEVVZoQWdaWHZQYVk2NlMwNXRCMGxSR3M1RDg2b1N0VTJiQkJsTzd1K0FBPT0K"
     }
   }
 }
