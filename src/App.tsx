@@ -6,7 +6,7 @@ import FolderPicker from "./components/FolderPicker";
 import OptionsPanel from "./components/OptionsPanel";
 import ProgressBar from "./components/ProgressBar";
 import ConfettiEffect from "./components/ConfettiEffect";
-import { Play, RotateCcw, Square } from "lucide-react";
+import { Play, RotateCcw, Square, Paintbrush } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
 import DarkVeil from './blocks/Backgrounds/DarkVeil/DarkVeil';
@@ -15,7 +15,9 @@ import LiveUsers from "./components/LiveUsers";
 import WindowControls from "./components/WindowControls";
 
 import "./App.css";
-
+import Prism from "./blocks/Backgrounds/Prism/Prism";
+import Hyperspeed from "./blocks/Backgrounds/Hyperspeed/Hyperspeed";
+import DotGrid from "./blocks/Backgrounds/DotGrid/DotGrid";
 
 
 export default function App() {
@@ -26,6 +28,10 @@ export default function App() {
   const [isOrganizing, setIsOrganizing] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
   const [method, setMethod] = useState("extension");
+ 
+  const [background, setBackground] = useState<"prism" | "darkveil" | "Hyperspeed" | "DotGrid">("prism");
+
+ 
 
   // Disable right-click + DevTools
   useEffect(() => {
@@ -123,10 +129,30 @@ export default function App() {
       <WindowControls />
       
       
-      {/* Background Veil */}
-    <div className="absolute inset-0 -z-10 bg-black">
-      <DarkVeil />
+     <div className="absolute inset-0 -z-10 bg-black">
+      {background === "prism" && <Prism />}
+      {background === "darkveil" && <DarkVeil />}
+      {background === "Hyperspeed" && <Hyperspeed />}
+      {background === "DotGrid" && <DotGrid />}
     </div>
+
+    <motion.button
+      onClick={() => {
+        if (background === "prism") setBackground("darkveil");
+        else if (background === "darkveil") setBackground("Hyperspeed");
+        else if (background === "Hyperspeed") setBackground("DotGrid");
+        else setBackground("prism");
+      }}
+      whileTap={{ scale: 0.9 }}
+      whileHover={{ scale: 1.05 }}
+      className="fixed bottom-4 right-4 p-3 rounded-full 
+                bg-white/10 hover:bg-white/20
+                border border-white/20 
+                shadow-lg backdrop-blur-md
+                text-white"
+    >
+      <Paintbrush size={20} />
+    </motion.button>
       
       {/* Live Users */}
       <Toaster
@@ -236,7 +262,7 @@ export default function App() {
       )}
        <LiveUsers />
         
-      {/* Confetti */}
+      Confetti
       {isDone && <ConfettiEffect />}
     </motion.div>
     

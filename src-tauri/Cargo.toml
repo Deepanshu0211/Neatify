@@ -1,6 +1,6 @@
 [package]
 name = "Neatify"
-version = "3.0.3"
+version = "3.0.4"
 description = "Deepanshu Neatify"
 authors = ["Deepanshu0211"]
 edition = "2021"
@@ -36,3 +36,9 @@ tauri-plugin-shell = "2"
 [target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
 tauri-plugin-updater = "2"
 
+# NEW for Discord auth
+reqwest = { version = "0.12", features = ["json", "rustls-tls"] }
+rand = "0.8"
+urlencoding = "2"
+dotenvy = "0.15"
+tiny_http = "0.12"
