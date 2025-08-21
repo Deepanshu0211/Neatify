@@ -6,7 +6,7 @@ import FolderPicker from "./components/FolderPicker";
 import OptionsPanel from "./components/OptionsPanel";
 import ProgressBar from "./components/ProgressBar";
 import ConfettiEffect from "./components/ConfettiEffect";
-import { Play, RotateCcw, Square, Paintbrush } from "lucide-react";
+import { Play, RotateCcw, Square } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
 import DarkVeil from './blocks/Backgrounds/DarkVeil/DarkVeil';
@@ -15,9 +15,9 @@ import LiveUsers from "./components/LiveUsers";
 import WindowControls from "./components/WindowControls";
 
 import "./App.css";
-import Prism from "./blocks/Backgrounds/Prism/Prism";
-import Hyperspeed from "./blocks/Backgrounds/Hyperspeed/Hyperspeed";
-import DotGrid from "./blocks/Backgrounds/DotGrid/DotGrid";
+// import Prism from "./blocks/Backgrounds/Prism/Prism";
+// import Hyperspeed from "./blocks/Backgrounds/Hyperspeed/Hyperspeed";
+// import DotGrid from "./blocks/Backgrounds/DotGrid/DotGrid";
 
 
 export default function App() {
@@ -29,7 +29,7 @@ export default function App() {
   const [statusMessage, setStatusMessage] = useState("");
   const [method, setMethod] = useState("extension");
  
-  const [background, setBackground] = useState<"prism" | "darkveil" | "Hyperspeed" | "DotGrid">("prism");
+  // const [background, setBackground] = useState<"prism" | "darkveil" | "Hyperspeed" | "DotGrid">("prism");
 
  
 
@@ -130,13 +130,15 @@ export default function App() {
       
       
      <div className="absolute inset-0 -z-10 bg-black">
-      {background === "prism" && <Prism />}
+
+      <DarkVeil />
+      {/* {background === "prism" && <Prism />}
       {background === "darkveil" && <DarkVeil />}
       {background === "Hyperspeed" && <Hyperspeed />}
-      {background === "DotGrid" && <DotGrid />}
+      {background === "DotGrid" && <DotGrid />} */}
     </div>
 
-    <motion.button
+    {/* <motion.button
       onClick={() => {
         if (background === "prism") setBackground("darkveil");
         else if (background === "darkveil") setBackground("Hyperspeed");
@@ -152,7 +154,7 @@ export default function App() {
                 text-white"
     >
       <Paintbrush size={20} />
-    </motion.button>
+    </motion.button> */}
       
       {/* Live Users */}
       <Toaster

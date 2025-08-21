@@ -1,6 +1,6 @@
 [package]
 name = "Neatify"
-version = "3.0.5"
+version = "3.0.6"
 description = "Deepanshu Neatify"
 authors = ["Deepanshu0211"]
 edition = "2021"
