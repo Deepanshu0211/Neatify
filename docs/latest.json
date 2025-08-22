@@ -1,0 +1,11 @@
+{
+  "version": "3.0.7",
+  "notes": "What's new in this version...",
+  "pub_date": "2025-08-21T09:52:00Z",
+  "platforms": {
+    "windows-x86_64": {
+      "url": "https://github.com/Deepanshu0211/Neatify/releases/download/v3.0.7/Neatify_3.0.7_x64-setup.exe",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUNkcwYWZ6alZQUllzc21maWxURTZETUNUKzNnWkh3OGx5aXhrOXJyc2VmNmVkNS90LzFPVVFGbFhCcWNTM1gyeCtjZkd4MlJKNUdGMVVaancwNkxIQ1BhTW00VXJvZ3drPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzU1ODYxNzcxCWZpbGU6TmVhdGlmeV8zLjAuN194NjQtc2V0dXAuZXhlCmpFamhvWkUzR2hyRTJSRzRrbEtYc0Y4TWxsM0l5NnlZaEFZQ1p1UW5XUFlJM3FCcVlTQmJXR1pLY0NkYTI3dnJTZEh1TWU3dHNzanc4aUc2aXd4c0RBPT0K"
+    }
+  }
+}
