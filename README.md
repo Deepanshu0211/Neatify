@@ -10,7 +10,6 @@ Organize your digital chaos effortlessly.
 **[![Version](https://img.shields.io/badge/version-3.0.7-blue.svg)](https://github.com/Deepanshu0211/Neatify/releases)**
 **[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Deepanshu0211/Neatify/blob/main/LICENSE)**
 **[![Stars](https://img.shields.io/github/stars/Deepanshu0211/Neatify?style=social)](https://github.com/Deepanshu0211/Neatify/stargazers)**
-**[![Downloads](https://img.shields.io/github/downloads/Deepanshu0211/Neatify/total?color=orange)](https://github.com/Deepanshu0211/Neatify/releases)**
 
 </div>
 
