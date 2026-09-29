@@ -1,9 +1,6 @@
 use serde::Serialize;
-use std::{
-    collections::HashMap,
-    fs,
-};
 use std::path::Path;
+use std::{collections::HashMap, fs};
 use tauri::{Emitter, Window};
 
 #[derive(Serialize)]
@@ -143,4 +140,3 @@ pub fn undo_organization(path: String) -> Result<(), String> {
 
     Ok(())
 }
-

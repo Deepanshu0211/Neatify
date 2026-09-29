@@ -22,7 +22,9 @@ export default function AuthorInfo() {
   useEffect(() => {
     async function fetchStatus() {
       try {
-        const res = await fetch(`https://api.lanyard.rest/v1/users/${DISCORD_ID}`);
+        const res = await fetch(
+          `https://api.lanyard.rest/v1/users/${DISCORD_ID}`,
+        );
         const json = await res.json();
         if (json.success) setDiscord(json.data);
       } catch (err) {
@@ -64,14 +66,18 @@ export default function AuthorInfo() {
   };
 
   return (
-    <div className="fixed top-4 left-4 z-5000" ref={cardRef}>
+    <div className="author-card" ref={cardRef}>
       {/* Floating Avatar Button */}
       <button
         onClick={() => setOpen(!open)}
         className="relative w-10 h-10 rounded-full overflow-hidden border border-white/20 shadow-lg"
       >
         {avatarUrl ? (
-          <img src={avatarUrl} alt="Discord Avatar" className="w-full h-full object-cover" />
+          <img
+            src={avatarUrl}
+            alt="Discord Avatar"
+            className="w-full h-full object-cover"
+          />
         ) : (
           <div className="w-full h-full bg-gradient-to-tr from-purple-500 to-blue-500 flex items-center justify-center text-white font-bold text-xs">
             ?
@@ -92,7 +98,6 @@ export default function AuthorInfo() {
             initial={{ opacity: 0, y: -10, scale: 0.95 }}
             animate={{ opacity: 1, y: 5, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
-            
             transition={{ duration: 0.25 }}
             className="absolute mt-2 top-7 left-0 w-48 p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl text-sm"
           >
@@ -131,7 +136,11 @@ export default function AuthorInfo() {
                 className="p-2 rounded-full bg-indigo-500 hover:bg-indigo-600 text-white"
                 title="Add Friend"
               >
-                {copied ? <Check className="w-4 h-4" /> : <UserPlus className="w-4 h-4" />}
+                {copied ? (
+                  <Check className="w-4 h-4" />
+                ) : (
+                  <UserPlus className="w-4 h-4" />
+                )}
               </motion.button>
 
               <motion.a

@@ -21,9 +21,18 @@ export default function FilePreviewer() {
         setFilePath(selected);
 
         // simple preview logic
-        if (selected.endsWith(".png") || selected.endsWith(".jpg") || selected.endsWith(".jpeg") || selected.endsWith(".gif")) {
+        if (
+          selected.endsWith(".png") ||
+          selected.endsWith(".jpg") ||
+          selected.endsWith(".jpeg") ||
+          selected.endsWith(".gif")
+        ) {
           setPreviewContent("image");
-        } else if (selected.endsWith(".txt") || selected.endsWith(".md") || selected.endsWith(".json")) {
+        } else if (
+          selected.endsWith(".txt") ||
+          selected.endsWith(".md") ||
+          selected.endsWith(".json")
+        ) {
           const text = await readTextFile(selected);
           setPreviewContent(text.slice(0, 500)); // preview first 500 chars
         } else {
@@ -49,11 +58,22 @@ export default function FilePreviewer() {
         <div className="mt-6 p-6 bg-gray-900 text-white rounded-2xl w-[500px]">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-lg font-bold">File Preview</h2>
-            <button onClick={() => { setFilePath(null); setPreviewContent(null); }}>✕</button>
+            <button
+              onClick={() => {
+                setFilePath(null);
+                setPreviewContent(null);
+              }}
+            >
+              ✕
+            </button>
           </div>
 
           {previewContent === "image" ? (
-            <img src={`tauri://localhost/${filePath}`} alt="Preview" className="rounded-lg max-h-64 object-contain" />
+            <img
+              src={`tauri://localhost/${filePath}`}
+              alt="Preview"
+              className="rounded-lg max-h-64 object-contain"
+            />
           ) : previewContent === "unsupported" ? (
             <p>No preview available for this file type</p>
           ) : previewContent ? (

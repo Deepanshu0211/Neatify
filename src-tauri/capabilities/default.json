@@ -5,9 +5,12 @@
   "windows": [
     "main"
   ],
-  "webviews": ["main"],
-  "urls": ["local"],
-
+  "webviews": [
+    "main"
+  ],
+  "urls": [
+    "local"
+  ],
   "permissions": [
     "core:default",
     "dialog:default",
@@ -25,8 +28,18 @@
     {
       "identifier": "http:allow-fetch",
       "domains": [
-        "https://neatify-stats-server.vercel.app"
+        "https://neatify-stats-server.vercel.app",
+        "https://api.open-meteo.com",
+        "https://geocoding-api.open-meteo.com"
       ]
-    }
+    },
+    "core:window:allow-toggle-maximize",
+    "core:window:allow-start-dragging",
+    "autostart:default",
+    "autostart:allow-enable",
+    "autostart:allow-disable",
+    "autostart:allow-is-enabled",
+    "opener:allow-reveal-item-in-dir",
+    "core:window:allow-set-theme"
   ]
 }

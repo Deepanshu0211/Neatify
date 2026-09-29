@@ -14,7 +14,7 @@ tauri-build = { version = "2", features = [] }
 
 [dependencies]
 # Tauri core
-tauri = { version = "2", features = ["default"] }
+tauri = { version = "2", features = ["default", "tray-icon", "image-png"] }
 discord-rich-presence = "0.2"
 tauri-plugin-http = "2"
 
@@ -32,6 +32,8 @@ serde_json = "1"
 tokio = { version = "1.47.0", features = ["rt-multi-thread", "macros", "time"] }
 chrono = "0.4.41"
 tauri-plugin-shell = "2"
+tauri-plugin-window-state = "2"
+tauri-plugin-autostart = "2"
 
 [target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
 tauri-plugin-updater = "2"

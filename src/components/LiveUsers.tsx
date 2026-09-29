@@ -45,7 +45,7 @@ export default function UpdateNotifier() {
   function showToast(
     message: string,
     type: "info" | "success" | "error" = "info",
-    action?: () => void
+    action?: () => void,
   ) {
     const id = Date.now();
     setToasts((prev) => [...prev, { id, message, type, action }]);
@@ -82,7 +82,7 @@ export default function UpdateNotifier() {
   async function fetchChangelog(version: string) {
     try {
       const res = await fetch(
-        `https://api.github.com/repos/Deepanshu0211/Neatify/releases/tags/v${version}`
+        `https://api.github.com/repos/Deepanshu0211/Neatify/releases/tags/v${version}`,
       );
       if (!res.ok) {
         setChangelog("Could not load changelog.");
@@ -113,7 +113,7 @@ export default function UpdateNotifier() {
             downloadedSoFar += data.chunkLength;
             const pct = Math.min(
               100,
-              Math.round((downloadedSoFar / data.contentLength) * 100)
+              Math.round((downloadedSoFar / data.contentLength) * 100),
             );
             setProgress(pct);
           }
@@ -168,8 +168,7 @@ export default function UpdateNotifier() {
             </>
           ) : updateVersion ? (
             <>
-              <Download className="w-3 h-3" />
-              v{updateVersion}
+              <Download className="w-3 h-3" />v{updateVersion}
             </>
           ) : (
             <>
@@ -268,7 +267,8 @@ export default function UpdateNotifier() {
             >
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-lg font-bold flex items-center gap-2">
-                  <FileText className="w-5 h-5" /> What’s new in v{updateVersion}
+                  <FileText className="w-5 h-5" /> What’s new in v
+                  {updateVersion}
                 </h2>
                 <button
                   onClick={() => setShowModal(false)}

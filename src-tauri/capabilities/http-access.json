@@ -1,7 +1,7 @@
 {
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "http-access",
-  "description": "Allow Neatify to fetch stats",
+  "description": "Allow Neatify to fetch stats and weather data",
   "windows": ["main"],
   "permissions": [
     "core:default",
@@ -9,7 +9,9 @@
     {
       "identifier": "http:allow-fetch",
       "domains": [
-        "https://neatify-stats-server.vercel.app"
+        "https://neatify-stats-server.vercel.app",
+        "https://api.open-meteo.com",
+        "https://geocoding-api.open-meteo.com"
       ]
     }
   ]

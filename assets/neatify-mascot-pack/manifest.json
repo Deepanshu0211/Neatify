@@ -1,0 +1,503 @@
+{
+  "version": 1,
+  "method": "original hand-authored raster pixel grids",
+  "palette": {
+    "_": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "F": [
+      42,
+      65,
+      52,
+      255
+    ],
+    "G": [
+      93,
+      121,
+      96,
+      255
+    ],
+    "L": [
+      151,
+      173,
+      128,
+      255
+    ],
+    "C": [
+      240,
+      230,
+      197,
+      255
+    ],
+    "W": [
+      250,
+      247,
+      232,
+      255
+    ],
+    "B": [
+      194,
+      169,
+      126,
+      255
+    ],
+    "T": [
+      141,
+      108,
+      75,
+      255
+    ],
+    "D": [
+      83,
+      69,
+      49,
+      255
+    ]
+  },
+  "assets": [
+    {
+      "path": "neatify-mascot.png",
+      "width": 1024,
+      "height": 1024,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "neatify-mascot-head.png",
+      "width": 1024,
+      "height": 1024,
+      "logicalWidth": 32,
+      "logicalHeight": 32
+    },
+    {
+      "path": "neatify-mascot-icon.png",
+      "width": 1024,
+      "height": 1024,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "neatify-mascot-folder.png",
+      "width": 1024,
+      "height": 1024,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "neatify-mascot-silhouette.png",
+      "width": 1024,
+      "height": 1024,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "windows/neatify-app-icon.png",
+      "width": 1024,
+      "height": 1024,
+      "logicalWidth": 32,
+      "logicalHeight": 32
+    },
+    {
+      "path": "source/idle-grid-64.png",
+      "width": 64,
+      "height": 64,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "source/head-grid-32.png",
+      "width": 32,
+      "height": 32,
+      "logicalWidth": 32,
+      "logicalHeight": 32
+    },
+    {
+      "path": "source/icon-grid-16.png",
+      "width": 16,
+      "height": 16,
+      "logicalWidth": 16,
+      "logicalHeight": 16
+    },
+    {
+      "path": "source/icon-grid-24.png",
+      "width": 24,
+      "height": 24,
+      "logicalWidth": 24,
+      "logicalHeight": 24
+    },
+    {
+      "path": "expressions/idle.png",
+      "width": 512,
+      "height": 512,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "runtime/idle.png",
+      "width": 64,
+      "height": 64,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "expressions/happy.png",
+      "width": 512,
+      "height": 512,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "runtime/happy.png",
+      "width": 64,
+      "height": 64,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "expressions/curious.png",
+      "width": 512,
+      "height": 512,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "runtime/curious.png",
+      "width": 64,
+      "height": 64,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "expressions/working.png",
+      "width": 512,
+      "height": 512,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "runtime/working.png",
+      "width": 64,
+      "height": 64,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "expressions/carrying.png",
+      "width": 512,
+      "height": 512,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "runtime/carrying.png",
+      "width": 64,
+      "height": 64,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "expressions/scanning.png",
+      "width": 512,
+      "height": 512,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "runtime/scanning.png",
+      "width": 64,
+      "height": 64,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "expressions/organizing.png",
+      "width": 512,
+      "height": 512,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "runtime/organizing.png",
+      "width": 64,
+      "height": 64,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "expressions/confused.png",
+      "width": 512,
+      "height": 512,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "runtime/confused.png",
+      "width": 64,
+      "height": 64,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "expressions/sleepy.png",
+      "width": 512,
+      "height": 512,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "runtime/sleepy.png",
+      "width": 64,
+      "height": 64,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "expressions/celebrating.png",
+      "width": 512,
+      "height": 512,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "runtime/celebrating.png",
+      "width": 64,
+      "height": 64,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "neatify-expression-sheet.png",
+      "width": 3200,
+      "height": 1408,
+      "logicalWidth": 400,
+      "logicalHeight": 176
+    },
+    {
+      "path": "runtime/blink.png",
+      "width": 64,
+      "height": 64,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "windows/16x16.png",
+      "width": 16,
+      "height": 16,
+      "logicalWidth": 16,
+      "logicalHeight": 16
+    },
+    {
+      "path": "sizes/full-16.png",
+      "width": 16,
+      "height": 16,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "windows/24x24.png",
+      "width": 24,
+      "height": 24,
+      "logicalWidth": 24,
+      "logicalHeight": 24
+    },
+    {
+      "path": "sizes/full-24.png",
+      "width": 24,
+      "height": 24,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "windows/32x32.png",
+      "width": 32,
+      "height": 32,
+      "logicalWidth": 32,
+      "logicalHeight": 32
+    },
+    {
+      "path": "sizes/full-32.png",
+      "width": 32,
+      "height": 32,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "windows/48x48.png",
+      "width": 48,
+      "height": 48,
+      "logicalWidth": 24,
+      "logicalHeight": 24
+    },
+    {
+      "path": "sizes/full-48.png",
+      "width": 48,
+      "height": 48,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "windows/64x64.png",
+      "width": 64,
+      "height": 64,
+      "logicalWidth": 32,
+      "logicalHeight": 32
+    },
+    {
+      "path": "sizes/full-64.png",
+      "width": 64,
+      "height": 64,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "windows/128x128.png",
+      "width": 128,
+      "height": 128,
+      "logicalWidth": 32,
+      "logicalHeight": 32
+    },
+    {
+      "path": "sizes/full-128.png",
+      "width": 128,
+      "height": 128,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "windows/256x256.png",
+      "width": 256,
+      "height": 256,
+      "logicalWidth": 32,
+      "logicalHeight": 32
+    },
+    {
+      "path": "sizes/full-256.png",
+      "width": 256,
+      "height": 256,
+      "logicalWidth": 64,
+      "logicalHeight": 64
+    },
+    {
+      "path": "icon-size-reference.png",
+      "width": 760,
+      "height": 288,
+      "logicalWidth": 760,
+      "logicalHeight": 288
+    }
+  ],
+  "expressions": [
+    {
+      "state": "idle",
+      "row": 1,
+      "column": 1,
+      "cell": {
+        "x": 0,
+        "y": 0,
+        "width": 640,
+        "height": 704
+      }
+    },
+    {
+      "state": "happy",
+      "row": 1,
+      "column": 2,
+      "cell": {
+        "x": 640,
+        "y": 0,
+        "width": 640,
+        "height": 704
+      }
+    },
+    {
+      "state": "curious",
+      "row": 1,
+      "column": 3,
+      "cell": {
+        "x": 1280,
+        "y": 0,
+        "width": 640,
+        "height": 704
+      }
+    },
+    {
+      "state": "working",
+      "row": 1,
+      "column": 4,
+      "cell": {
+        "x": 1920,
+        "y": 0,
+        "width": 640,
+        "height": 704
+      }
+    },
+    {
+      "state": "carrying",
+      "row": 1,
+      "column": 5,
+      "cell": {
+        "x": 2560,
+        "y": 0,
+        "width": 640,
+        "height": 704
+      }
+    },
+    {
+      "state": "scanning",
+      "row": 2,
+      "column": 1,
+      "cell": {
+        "x": 0,
+        "y": 704,
+        "width": 640,
+        "height": 704
+      }
+    },
+    {
+      "state": "organizing",
+      "row": 2,
+      "column": 2,
+      "cell": {
+        "x": 640,
+        "y": 704,
+        "width": 640,
+        "height": 704
+      }
+    },
+    {
+      "state": "confused",
+      "row": 2,
+      "column": 3,
+      "cell": {
+        "x": 1280,
+        "y": 704,
+        "width": 640,
+        "height": 704
+      }
+    },
+    {
+      "state": "sleepy",
+      "row": 2,
+      "column": 4,
+      "cell": {
+        "x": 1920,
+        "y": 704,
+        "width": 640,
+        "height": 704
+      }
+    },
+    {
+      "state": "celebrating",
+      "row": 2,
+      "column": 5,
+      "cell": {
+        "x": 2560,
+        "y": 704,
+        "width": 640,
+        "height": 704
+      }
+    }
+  ]
+}

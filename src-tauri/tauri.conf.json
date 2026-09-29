@@ -13,13 +13,19 @@
     "windows": [
       {
         "title": "Neatify",
-        "width": 900,
-        "height": 605,
+        "width": 1366,
+        "height": 860,
+        "minWidth": 1366,
+        "minHeight": 860,
+        "maxWidth": 1366,
+        "maxHeight": 860,
         "center": true,
         "resizable": false,
         "fullscreen": false,
         "decorations": false,
-        "devtools": false
+        "devtools": false,
+        "minWidth": 900,
+        "minHeight": 600
       }
     ],
     "security": {
@@ -30,11 +36,11 @@
     "active": true,
     "targets": "all",
     "icon": [
-      "icons/32x32.png",
-      "icons/128x128.png",
-      "icons/128x128@2x.png",
+      "../assets/mascot/windows/32x32.png",
+      "../assets/mascot/windows/128x128.png",
+      "../assets/mascot/windows/256x256.png",
       "icons/icon.icns",
-      "icons/icon.ico"
+      "../assets/mascot/windows/neatify.ico"
     ]
   },
   "plugins": {
@@ -45,11 +51,11 @@
       ],
       "dialog": true,
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDQ1NEYzNUNFOUY0NjFCRkEKUldUNkcwYWZ6alZQUlVvZ3V1Q0ZMQU5ibkVoVUVOZlNvNkhjNStnQkJJcGFxcmxLWVR4VHYwNTQK",
-       "allow": {
-      "check": true,
-      "download": true,
-      "install": true
-    }
+      "allow": {
+        "check": true,
+        "download": true,
+        "install": true
+      }
     }
   }
 }

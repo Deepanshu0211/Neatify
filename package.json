@@ -11,10 +11,12 @@
     "server": "node server.js"
   },
   "dependencies": {
+    "@fontsource/silkscreen": "^5.3.0",
     "@react-three/drei": "^10.6.1",
     "@react-three/fiber": "^9.3.0",
     "@tailwindcss/vite": "^4.1.11",
     "@tauri-apps/api": "^2.7.0",
+    "@tauri-apps/plugin-autostart": "^2.6.0",
     "@tauri-apps/plugin-dialog": "^2.3.1",
     "@tauri-apps/plugin-fs": "^2.4.1",
     "@tauri-apps/plugin-http": "^2.5.1",
@@ -24,6 +26,7 @@
     "axios": "^1.11.0",
     "canvas-confetti": "^1.9.3",
     "cors": "^2.8.5",
+    "cron-parser": "^5.10.1",
     "express": "^5.1.0",
     "framer-motion": "^12.23.9",
     "gsap": "^3.13.0",
