@@ -15,6 +15,8 @@ Organize your digital chaos effortlessly.
 
 ---
 
+[GitHub Trending This Month](https://github.com/trending?since=monthly)
+
 ## Table of Contents
 
 1. [About](#about)  
